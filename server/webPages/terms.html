@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <script src = "/socket.io/socket.io.js"></script>
+   
+   <script>
+      var socket = io(
+         {
+      query: {
+               userId: '5d6e176ee2f28b40e1650f82',
+         },
+      }
+      );
+      // socket.emit('connectUser', '5d6e1555206baa3e1ac534cc');
+      document.write(JSON.stringify(socket));
+      socket.emit('message', '5d6e1555206baa3e1ac534cc');
+      // socket.emit('broadcast', 'HELLO');
+      // socket.on('message', function(data){document.write(JSON.stringify(data))});
+   </script>
+   <body>Hello world</body>
+</html>

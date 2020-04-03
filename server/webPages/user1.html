@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <script src = "http://ec2-18-218-192-105.us-east-2.compute.amazonaws.com:3000/socket.io/socket.io.js"></script>
+   
+   <script>
+      var socket = io(
+         {
+      query: {
+            userId: '5d6e1555206baa3e1ac534cc',
+         },
+      }
+      );
+      socket.on('event', function(data){document.write(JSON.stringify(data))});
+      socket.on('message', (data) => {
+         document.write(JSON.stringify(data))});
+      socket.on('broadcast message', function(data){document.write(data.message)});
+      socket.emit('message', 'HELLO');
+     
+      // socket.join('100');      
+      // socket.on('connectToRoom',function(data) {
+      //    document.body.innerHTML = '';
+      //    document.write(data);
+      // });
+   </script>
+   <body>Hello world</body>
+</html>

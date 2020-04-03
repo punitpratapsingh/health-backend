@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello world</title>
+   </head>
+   <script src = "/socket.io/socket.io.js"></script>
+   
+   <script>
+      var socket = io(
+         {
+      query: {
+            userId: '5d6f67370404c800119df632',
+         },
+      }
+      );
+      socket.on('event', function(data){document.write(JSON.stringify(data))});
+      socket.on('message', function(data){document.write(JSON.stringify(data))});
+      socket.on('broadcast message', function(data){document.write(data.message)});
+      socket.emit('message', 'HELLO');
+      // socket.join('100');      
+      // socket.on('connectToRoom',function(data) {
+      //    document.body.innerHTML = '';
+      //    document.write(data);
+      // });
+   </script>
+   <body>Hello world</body>
+</html>
